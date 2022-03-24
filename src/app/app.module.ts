@@ -1,7 +1,10 @@
+import { ErrorModalComponent } from './components/modals/error-modal/error-modal.component';
+import { EntryPage } from './pages/entry/entry.page';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TouchPanelComponent } from './components/touch-panel/touch-panel.component';
 import { RegisterPage } from './pages/register/register.page';
 import { MobilNumberPage } from './pages/mobil-number/mobil-number.page';
 import { ContractPage } from './pages/contract/contract.page';
-import { ContractPageModule } from './pages/contract/contract.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -11,8 +14,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { EntryPageModule } from './pages/entry/entry.module';
 import { HeaderPageComponent } from './components/header-page/header-page.component';
+import { SuccessModalComponent } from './components/modals/success-modal/success-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,19 @@ import { HeaderPageComponent } from './components/header-page/header-page.compon
     MobilNumberPage,
     RegisterPage,
     HeaderPageComponent,
+    TouchPanelComponent,
+    EntryPage,
+    SuccessModalComponent,
+    ErrorModalComponent,
   ],
   entryComponents: [],
   imports: [
     HttpClientModule,
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    EntryPageModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
