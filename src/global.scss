@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,3 +24,169 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+@font-face {
+  font-family: "AvenirLTStd";
+  src: url("assets/fonts/AvenirLTProRoman.otf");
+}
+
+* {
+  font-family: Montserrat;
+}
+
+.coink-header {
+  text-align: center;
+  ion-button {
+    position: absolute;
+
+    ion-icon {
+      height: 20px;
+      width: 20px;
+      color: #1eeb00;
+    }
+  }
+
+  ion-title {
+    font-weight: bold;
+    color: #004b40;
+    font-size: 16px;
+  }
+
+  ion-icon {
+    width: 188px;
+    height: 18px;
+    margin-bottom: 5px;
+  }
+}
+
+.text-content {
+  --inner-padding-end: 0;
+  --padding-start: 0;
+  margin: 30px 20px 25px 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #1eea00;
+
+  ion-icon.icon-contract {
+    width: 72px;
+    height: 85px;
+  }
+
+  ion-icon {
+    width: 72px;
+    height: 64px;
+  }
+
+  .header-msg {
+    b {
+      color: #004b40;
+      font-size: 16px;
+    }
+  }
+
+  ion-label * {
+    white-space: normal;
+  }
+
+  ion-label {
+    p {
+      font-family: AvenirLTStd;
+    }
+
+    .contract-header {
+      font-size: 14px;
+      color: #323232;
+    }
+  }
+}
+
+.success-modal-alert {
+  --height: 349px;
+
+  ion-icon {
+    height: 80px;
+    width: 101px;
+    margin: 48px 0 36px 0;
+  }
+
+  div b {
+    color: #004b40;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.error-modal-alert {
+  --height: 240px;
+
+  ion-label b {
+    color: #f44336;
+    font-size: 16px;
+  }
+
+  ion-button {
+    text-transform: none;
+  }
+}
+
+.success-modal-alert,
+.error-modal-alert {
+  --width: 269px;
+
+  --border-radius: 10px;
+  backdrop-filter: blur(100px);
+
+  .custom-toolbar {
+    ion-button {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      --padding-top: 0;
+      --padding-end: 0;
+      --padding-bottom: 0;
+      --padding-start: 0;
+      --border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      margin: 0;
+    }
+  }
+
+  div p,
+  ion-label p {
+    margin: 16px 20px 0 20px;
+    color: #212121;
+    font-size: 16px;
+    font-family: AvenirLTStd;
+  }
+
+  ion-button {
+    font-size: 16px;
+    margin-bottom: 16px;
+    font-weight: bold;
+  }
+}
+
+.loading-custom-class {
+  --background: transparent;
+  --spinner-color: #1eeb00;
+  .loading-wrapper {
+    box-shadow: none;
+  }
+}
+
+.invalid-feedback {
+  margin-top: 8px;
+  color: #ff0000;
+  font-size: 12px;
+  font-family: AvenirLTStd;
+}
+
+.footer-btn {
+  font-weight: bold;
+  font-size: 16px;
+  height: 50px;
+  margin-top: 20px;
+}

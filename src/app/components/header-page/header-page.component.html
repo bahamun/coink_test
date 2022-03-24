@@ -1,0 +1,22 @@
+<ion-header class="coink-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="coink-btn" (click)="httpService.goBack()">
+        <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> {{ title }} </ion-title>
+  </ion-toolbar>
+  <ion-icon
+    *ngIf="page === 'mobilNumber'"
+    src="../../../assets/icon/group1.svg"
+  ></ion-icon>
+  <ion-icon
+    *ngIf="page === 'register'"
+    src="../../../assets/icon/group2.svg"
+  ></ion-icon>
+  <ion-icon
+    *ngIf="page === 'contract'"
+    src="../../../assets/icon/group3.svg"
+  ></ion-icon>
+</ion-header>

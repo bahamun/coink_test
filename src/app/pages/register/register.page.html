@@ -1,0 +1,381 @@
+<app-header-page [title]="config.registerTitle" [page]="config.page">
+</app-header-page>
+
+<ion-content>
+  <ion-item lines="none" class="text-content">
+    <ion-icon
+      class="ion-margin-end"
+      src="../../../assets/icon/coink.svg"
+    ></ion-icon>
+    <ion-label>
+      <p class="header-msg"><b> {{config.headerTitleMsg}} </b></p>
+      <ion-text color="medium"> {{config.headerMsg}} </ion-text>
+    </ion-label>
+  </ion-item>
+
+  <form
+    class="ion-margin-horizontal"
+    [formGroup]="viewModel.registerForm"
+    (ngSubmit)="regsiterValidate()"
+  >
+    <ion-list>
+      <ion-row>
+        <ion-label class="subtitle-form">
+          <ion-text color="coink-green"
+            >{{config.identificationTitle}}</ion-text
+          >
+        </ion-label>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label color="medium" position="floating"
+              >Tipo de documento
+            </ion-label>
+            <ion-select
+              interface="popover"
+              mode="ios"
+              formControlName="documentType"
+            >
+              <ion-select-option
+                *ngFor="let document of documentType"
+                [value]="document.description"
+                >{{document.description}}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+
+          <div
+            *ngIf="viewModel.submitted && viewModel.documentType.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="viewModel.documentType.errors.required">
+              El tipo de documento es requerido
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-item>
+            <ion-label color="medium" position="floating"
+              >Número de documento
+            </ion-label>
+            <ion-input
+              name="ideNumber"
+              formControlName="ideNumber"
+              type="text"
+            ></ion-input>
+          </ion-item>
+
+          <div
+            *ngIf="viewModel.submitted && viewModel.ideNumber.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="viewModel.ideNumber.errors.required">
+              El número de documento es requerido
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-item>
+            <ion-label color="medium" position="floating"
+              >Fecha de expedición del documento
+            </ion-label>
+            <ion-input
+              readonly
+              name="expeditionDate"
+              formControlName="expeditionDate"
+              type="text"
+            ></ion-input>
+
+            <ion-popover trigger="expedition-date-input" show-backdrop="false">
+              <ng-template>
+                <ion-datetime
+                  #expeditionDateDT
+                  presentation="date"
+                  (ionChange)="viewModel.expeditionDate.setValue(formatDate(expeditionDateDT.value))"
+                >
+                  <ion-buttons slot="buttons">
+                    <ion-button (click)="confirm('expeditionDateDT')"
+                      >Confirmar</ion-button
+                    >
+                    <ion-button (click)="reset('expeditionDateDT')"
+                      >Cancelar</ion-button
+                    >
+                  </ion-buttons></ion-datetime
+                >
+              </ng-template>
+            </ion-popover>
+
+            <ion-button
+              class="input-btn"
+              slot="end"
+              fill="clear"
+              id="expedition-date-input"
+            >
+              <ion-icon icon="calendar"></ion-icon>
+            </ion-button>
+          </ion-item>
+
+          <div
+            *ngIf="viewModel.submitted && viewModel.expeditionDate.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="viewModel.expeditionDate.errors.required">
+              La fecha de expedición es requerida
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-item>
+            <ion-label color="medium" position="floating"
+              >Fecha de nacimiento
+            </ion-label>
+            <ion-input
+              readonly
+              name="birthDate"
+              formControlName="birthDate"
+              type="text"
+            ></ion-input>
+            <ion-popover trigger="birth-date-input" show-backdrop="false">
+              <ng-template>
+                <ion-datetime
+                  #birthDateDT
+                  presentation="date"
+                  (ionChange)="viewModel.birthDate.setValue(formatDate(birthDateDT.value))"
+                >
+                  <ion-buttons slot="buttons">
+                    <ion-button (click)="confirm('birthDateDT')"
+                      >Confirmar</ion-button
+                    >
+                    <ion-button (click)="reset('birthDateDT')"
+                      >Cancelar</ion-button
+                    >
+                  </ion-buttons></ion-datetime
+                >
+              </ng-template>
+            </ion-popover>
+
+            <ion-button
+              class="input-btn"
+              slot="end"
+              fill="clear"
+              id="birth-date-input"
+            >
+              <ion-icon icon="calendar"></ion-icon>
+            </ion-button>
+          </ion-item>
+
+          <div
+            *ngIf="viewModel.submitted && viewModel.birthDate.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="viewModel.birthDate.errors.required">
+              La fecha de nacimiento es requerida
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-item>
+            <ion-label color="medium" position="floating">Genero </ion-label>
+            <ion-select interface="popover" mode="ios" formControlName="gender">
+              <ion-select-option
+                *ngFor="let gen of genderType"
+                [value]="gen.name"
+                >{{gen.name}}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+
+          <div
+            *ngIf="viewModel.submitted && viewModel.gender.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="viewModel.gender.errors.required">
+              El género es requerido
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-label class="subtitle-form ion-margin-top"
+          ><ion-text color="coink-green"
+            >{{config.accountTitle}}</ion-text
+          ></ion-label
+        >
+
+        <ion-col size="12" size-md="6">
+          <ion-item>
+            <ion-label color="medium" position="floating"
+              >Correo electrónico
+            </ion-label>
+            <ion-input
+              debounce="300"
+              (ionChange)="viewModel.updateEmailValidators()"
+              name="email"
+              formControlName="email"
+            ></ion-input>
+          </ion-item>
+
+          <div
+            *ngIf="viewModel.submitted && viewModel.email.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="viewModel.email.errors.required">
+              El correo electrónico es requerido
+            </div>
+            <div *ngIf="viewModel.email.errors.email">
+              El formato de correo no es correcto
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-md="6">
+          <ion-item>
+            <ion-label color="medium" position="floating"
+              >Confirmar correo electrónico
+            </ion-label>
+            <ion-input
+              debounce="300"
+              (ionChange)="viewModel.updateEmailValidators()"
+              name="confirmEmail"
+              formControlName="confirmEmail"
+            ></ion-input>
+
+            <ion-button
+              *ngIf="!viewModel.confirmEmail.errors && viewModel.confirmEmail.value"
+              class="input-btn-success"
+              readonly
+              slot="end"
+              fill="clear"
+            >
+              <ion-icon name="checkmark"></ion-icon>
+            </ion-button>
+
+            <ion-button
+              *ngIf="viewModel.confirmEmail.errors && viewModel.confirmEmail.errors.mustMatch"
+              class="input-btn-error"
+              readonly
+              slot="end"
+              fill="clear"
+            >
+              <ion-icon name="close"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <div *ngIf="viewModel.confirmEmail.errors" class="invalid-feedback">
+            <div *ngIf="viewModel.confirmEmail.errors.required">
+              La confirmación del correo electrónico es requerida
+            </div>
+            <div *ngIf="viewModel.confirmEmail.errors.mustMatch">
+              Este campo no coincide con el correo
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-md="6">
+          <ion-item>
+            <ion-label color="medium" position="floating"
+              >PIN de seguridad
+            </ion-label>
+            <ion-input
+              debounce="300"
+              (ionChange)="viewModel.updatePasswordValidators()"
+              name="password"
+              formControlName="password"
+              [type]="showPassword ?'text' : 'password'"
+              autocomplete="new-password"
+            ></ion-input>
+
+            <ion-button
+              class="input-btn"
+              (click)="showPass('showPassword')"
+              *ngIf="!showPassword"
+              slot="end"
+              fill="clear"
+            >
+              <ion-icon name="eye"></ion-icon>
+            </ion-button>
+
+            <ion-button
+              class="input-btn"
+              (click)="showPass('showPassword')"
+              *ngIf="showPassword"
+              slot="end"
+              fill="clear"
+            >
+              <ion-icon name="eye-off"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <div
+            *ngIf="viewModel.submitted && viewModel.password.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="viewModel.password.errors.required">
+              El PIN de seguridad es requrido
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-md="6">
+          <ion-item>
+            <ion-label color="medium" position="floating"
+              >Confirmar PIN de seguridad
+            </ion-label>
+            <ion-input
+              debounce="300"
+              (ionChange)="viewModel.updatePasswordValidators()"
+              name="confirmPassword"
+              formControlName="confirmPassword"
+              [type]="showConfirmPassword ?'text' : 'password'"
+              autocomplete="new-password"
+            ></ion-input>
+            <ion-button
+              class="input-btn"
+              (click)="showPass('showConfirmPassword')"
+              *ngIf="!showConfirmPassword"
+              slot="end"
+              fill="clear"
+            >
+              <ion-icon name="eye"></ion-icon>
+            </ion-button>
+
+            <ion-button
+              class="input-btn"
+              (click)="showPass('showConfirmPassword')"
+              *ngIf="showConfirmPassword"
+              slot="end"
+              fill="clear"
+            >
+              <ion-icon name="eye-off"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <div
+            *ngIf="viewModel.confirmPassword.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="viewModel.confirmPassword.errors.required">
+              La confirmación del PIN es requerida
+            </div>
+            <div *ngIf="viewModel.confirmPassword.errors.mustMatch">
+              Este campo no coincide con el PIN
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-button
+          class="footer-btn ion-margin-vertical"
+          type="submit"
+          color="coink-btn"
+          expand="block"
+          shape="round"
+        >
+          SIGUIENTE
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

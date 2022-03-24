@@ -1,0 +1,38 @@
+ion-datetime {
+  ion-button {
+    text-transform: none;
+  }
+}
+
+.input-btn {
+  color: #212121;
+}
+
+.input-btn-success {
+  color: #1eeb00;
+}
+
+.input-btn-error {
+  color: #ff0000;
+}
+
+.input-btn-success,
+.input-btn-error,
+.input-btn {
+  position: relative;
+  right: -10px;
+  bottom: -16px;
+  font-size: 14px;
+}
+
+.next-btn {
+  font-weight: bold;
+  font-size: 16px;
+  height: 50px;
+  margin-top: 20px;
+}
+
+.subtitle-form {
+  font-size: 16px;
+  font-weight: bold;
+}

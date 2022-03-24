@@ -1,0 +1,44 @@
+<ion-row>
+  <ion-col
+    [ngClass]="{ 'is-number': number !== 10 && number !== 11 }"
+    class="ion-text-center"
+    *ngFor="let number of panelNumbers"
+    size="4"
+  >
+    <ion-button
+      [disabled]="numbersLength === 4 && onNumberVerificaion"
+      *ngIf="number !== 10 && number !== 11 && number !== -1"
+      color="coink-login-btn"
+      (click)="sendNumber(number)"
+      fill="clear"
+      shape="round"
+    >
+      {{ number }}
+    </ion-button>
+
+    <ion-button
+      class="backspace-btn"
+      *ngIf="number === 10"
+      color="coink-login-btn"
+      (click)="sendNumber(number)"
+      fill="clear"
+      shape="round"
+    >
+      <ion-icon
+        slot="icon-only"
+        src="../../../assets/icon/backspace.svg"
+      ></ion-icon>
+    </ion-button>
+
+    <ion-button
+      [disabled]="numbersLength !== 10"
+      class="check-btn"
+      *ngIf="number === 11"
+      [color]="numbersLength !== 10 ? 'coink-disabled-btn' : 'coink-btn'"
+      (click)="sendNumber(number)"
+      shape="round"
+    >
+      <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+    </ion-button>
+  </ion-col>
+</ion-row>

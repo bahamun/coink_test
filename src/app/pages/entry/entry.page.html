@@ -1,0 +1,28 @@
+<ion-content>
+  <div class="entry-content ion-padding">
+    <div class="coink-icon ion-text-center">
+      <ion-icon src="../../../assets/icon/coinkEntry.svg"></ion-icon>
+
+      <b> {{config.entryMsg}} </b>
+    </div>
+    <div class="entry-btns">
+      <ion-button
+        color="coink-btn"
+        class="ion-margin-bottom"
+        (click)="goTo()"
+        expand="block"
+        shape="round"
+      >
+        Registrate
+      </ion-button>
+      <ion-button
+        color="coink-login-btn"
+        (click)="'onClick()'"
+        expand="block"
+        shape="round"
+      >
+        Ingresa
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

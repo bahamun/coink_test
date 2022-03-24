@@ -1,0 +1,49 @@
+<app-header-page [title]="config.contractTitle" [page]="config.page">
+</app-header-page>
+
+<ion-content>
+  <ion-row class="ion-margin-vertical">
+    <ion-col size="12">
+      <ion-item lines="none" class="text-content">
+        <ion-icon
+          class="ion-margin-end icon-contract"
+          src="../../../assets/icon/coinkPolicia.svg"
+        ></ion-icon>
+        <ion-label>
+          <p class="header-msg"><b> {{config.headerTitleMsg}} </b></p>
+          <ion-text class="contract-header"> {{config.headerMsg}} </ion-text>
+        </ion-label>
+      </ion-item>
+
+      <div class="body-contract">
+        <b class="body-contract-title"> {{config.contractBodyTitle}} </b>
+
+        <div class="body-contract-text">
+          <p class="ion-margin-top">{{config.contracText1}}</p>
+          <p>{{config.contracText2}}</p>
+          <p>{{config.contracText3}}</p>
+        </div>
+        <a href="http://" target="_blank" rel="noopener noreferrer">
+          {{config.readContractText}}
+        </a>
+        <ion-item lines="none">
+          <ion-checkbox [(ngModel)]="aceptTerms" color="coink-btn">
+          </ion-checkbox>
+          <ion-label>{{config.aceptTermsText}}</ion-label>
+        </ion-item>
+
+        <ion-button
+          [disabled]="!aceptTerms"
+          class="footer-btn"
+          type="submit"
+          color="coink-btn"
+          expand="block"
+          shape="round"
+          (click)="endRegister()"
+        >
+          SIGUIENTE
+        </ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

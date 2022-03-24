@@ -1,0 +1,30 @@
+.body-contract {
+  margin: 0 16px;
+
+  .body-contract-title {
+    color: #004b40;
+  }
+
+  .body-contract-text {
+    * {
+      font-family: AvenirLTStd;
+      font-size: 14px;
+      color: #323232;
+    }
+  }
+
+  a {
+    color: #004b40;
+    font-weight: bold;
+  }
+
+  ion-item {
+    --inner-padding-end: 0;
+    --padding-start: 0;
+    font-size: 14px;
+
+    ion-checkbox {
+      margin-right: 10px;
+    }
+  }
+}

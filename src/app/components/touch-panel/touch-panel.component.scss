@@ -1,0 +1,40 @@
+.is-number {
+  ion-button {
+    font-size: 32px;
+    --padding-start: 5px;
+    --padding-end: 5px;
+    --padding-bottom: 5px;
+    --padding-top: 5px;
+    --border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    font-weight: 500;
+  }
+}
+
+.check-btn,
+.backspace-btn {
+  --padding-bottom: 0;
+  --padding-end: 0;
+  --padding-start: 0;
+  --padding-top: 0;
+  --border-radius: 50%;
+}
+
+.backspace-btn {
+  height: 65px;
+  width: 65px;
+
+  ion-icon {
+    width: 56px;
+    height: 41px;
+  }
+}
+
+.check-btn {
+  width: 56px;
+  height: 56px;
+  ionb-icon {
+    font-size: 20px;
+  }
+}

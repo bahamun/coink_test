@@ -1,0 +1,55 @@
+<app-header-page [title]="config.mobilNumberTitle" [page]="config.page">
+</app-header-page>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-item class="text-content">
+      <ion-icon
+        class="ion-margin-end"
+        src="../../../assets/icon/coink.svg"
+      ></ion-icon>
+      <ion-label>
+        <ion-text *ngIf="!showVerificationNumber" color="coink-grey">
+          {{config.mobilNumberMsg}} <b>{{config.mobilNumberMsg2}}</b>
+        </ion-text>
+        <ion-text *ngIf="showVerificationNumber" color="coink-grey">
+          {{config.verificationMsg}} <b>{{config.verificationMsg2}}</b> al
+          {{numberFormated}}
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        *ngIf="!showVerificationNumber"
+        class="ion-text-center"
+        [value]="mobilNumber"
+        readonly
+        type="text"
+        placeholder="(XXX - XXXXXXX)"
+      ></ion-input>
+      <ion-input
+        maxlength="4"
+        *ngIf="showVerificationNumber"
+        class="ion-text-center number-verification"
+        [value]="verificationNumber"
+        readonly
+        type="password"
+        placeholder="XXXX"
+        (ionChange)="onVerificationNumber()"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <app-touch-panel
+      [panelNumbers]="panelNumbers"
+      [numbersLength]="mobilNumber.length"
+      [onNumberVerificaion]="showVerificationNumber"
+      (numberSelected)="updateMobilNumber($event)"
+    >
+    </app-touch-panel>
+  </ion-toolbar>
+</ion-footer>

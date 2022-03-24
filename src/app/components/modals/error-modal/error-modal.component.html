@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="custom-toolbar">
+    <ion-button
+      color="coink-close-btn"
+      mode="md"
+      (click)="reSendVerificationNumber(false)"
+    >
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <ion-label>
+    <b> CÓDIGO INCORRECTO </b>
+    <p class="ion-margin-top">{{ message }}</p>
+  </ion-label>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-text-center">
+    <ion-button
+      color="coink-login-btn"
+      fill="clear"
+      shape="round"
+      mode="md"
+      (click)="reSendVerificationNumber(true)"
+    >
+      Reenviar código
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

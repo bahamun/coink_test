@@ -1,0 +1,23 @@
+<ion-content class="ion-text-center">
+  <div class="ion-text-center">
+    <ion-icon src="../../../../assets/icon/coinkRegalo.svg"></ion-icon>
+
+    <b> ¡Bienvenido a Coink! </b>
+    <p class="ion-margin-top">{{ message }}</p>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-text-center">
+    <ion-button
+      class="ion-margin-horizontal"
+      expand="block"
+      color="coink-btn"
+      shape="round"
+      mode="md"
+      (click)="reSendVerificationNumber(true)"
+    >
+      Continuar
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
