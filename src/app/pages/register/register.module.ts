@@ -18,6 +18,6 @@ import { RegisterPage } from './register.page';
     IonicModule,
     RegisterPageRoutingModule,
   ],
-  declarations: [RegisterPage, SuccessModalComponent, HeaderPageComponent],
+  declarations: [RegisterPage, SuccessModalComponent],
 })
 export class RegisterPageModule {}

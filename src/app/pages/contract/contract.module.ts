@@ -1,4 +1,3 @@
-import { HeaderPageComponent } from './../../components/header-page/header-page.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +10,6 @@ import { ContractPage } from './contract.page';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, ContractPageRoutingModule],
-  declarations: [ContractPage, HeaderPageComponent],
+  declarations: [ContractPage],
 })
 export class ContractPageModule {}

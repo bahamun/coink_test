@@ -18,11 +18,6 @@ import { TouchPanelComponent } from 'src/app/components/touch-panel/touch-panel.
     IonicModule,
     MobilNumberPageRoutingModule,
   ],
-  declarations: [
-    MobilNumberPage,
-    HeaderPageComponent,
-    TouchPanelComponent,
-    ErrorModalComponent,
-  ],
+  declarations: [MobilNumberPage, TouchPanelComponent, ErrorModalComponent],
 })
 export class MobilNumberPageModule {}

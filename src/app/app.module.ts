@@ -1,3 +1,7 @@
+import { RegisterPage } from './pages/register/register.page';
+import { MobilNumberPage } from './pages/mobil-number/mobil-number.page';
+import { ContractPage } from './pages/contract/contract.page';
+import { ContractPageModule } from './pages/contract/contract.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -11,7 +15,13 @@ import { EntryPageModule } from './pages/entry/entry.module';
 import { HeaderPageComponent } from './components/header-page/header-page.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    ContractPage,
+    MobilNumberPage,
+    RegisterPage,
+    HeaderPageComponent,
+  ],
   entryComponents: [],
   imports: [
     HttpClientModule,
